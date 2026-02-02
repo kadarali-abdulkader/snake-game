@@ -3,8 +3,10 @@ const ctx = canvas.getContext('2d');
 const scoreElement = document.getElementById('score');
 const finalScoreElement = document.getElementById('finalScore');
 const gameOverScreen = document.getElementById('gameOverScreen');
+const victoryScreen = document.getElementById('victoryScreen');
 const startScreen = document.getElementById('startScreen');
 const restartBtn = document.getElementById('restartBtn');
+const victoryRestartBtn = document.getElementById('victoryRestartBtn');
 const startBtn = document.getElementById('startBtn');
 
 // Determine canvas size based on window size for responsiveness logic if needed
@@ -35,6 +37,7 @@ function initGame() {
     scoreElement.textContent = score;
     placeFood();
     gameOverScreen.classList.add('hidden');
+    victoryScreen.classList.add('hidden');
     startScreen.classList.add('hidden');
     isGameRunning = true;
     isPaused = false;
@@ -74,6 +77,10 @@ function update() {
     if (head.x === food.x && head.y === food.y) {
         score += 10;
         scoreElement.textContent = score;
+        if (score >= 60) {
+            gameWon();
+            return;
+        }
         placeFood();
         // Snake grows (we don't pop the tail)
     } else {
@@ -129,6 +136,12 @@ function gameOver() {
     gameOverScreen.classList.remove('hidden');
 }
 
+function gameWon() {
+    isGameRunning = false;
+    clearInterval(gameInterval);
+    victoryScreen.classList.remove('hidden');
+}
+
 // Input Handling
 document.addEventListener('keydown', changeDirection);
 
@@ -179,6 +192,7 @@ document.getElementById('rightBtn').addEventListener('click', () => {
 });
 
 restartBtn.addEventListener('click', initGame);
+victoryRestartBtn.addEventListener('click', initGame);
 startBtn.addEventListener('click', initGame);
 
 // Initial draw to show start screen background if needed

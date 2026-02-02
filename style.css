@@ -71,7 +71,7 @@ canvas {
 }
 
 /* Overlays */
-#gameOverScreen, #startScreen {
+#gameOverScreen, #startScreen, #victoryScreen {
     position: absolute;
     top: 0;
     left: 0;
