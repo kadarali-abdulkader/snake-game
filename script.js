@@ -40,7 +40,7 @@ function initGame() {
     isPaused = false;
 
     if (gameInterval) clearInterval(gameInterval);
-    gameInterval = setInterval(gameLoop, 100); // 10 FPS
+    gameInterval = setInterval(gameLoop, 150); // Slower speed
 }
 
 function gameLoop() {
