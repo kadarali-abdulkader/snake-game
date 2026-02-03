@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Snake (Slow)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="game-container">
+        <div class="header">
+            <h1>SNAKE (SLOW)</h1>
+            <div class="score-board">Score: <span id="score">0</span></div>
+        </div>
+
+        <div class="canvas-wrapper">
+            <canvas id="gameCanvas" width="400" height="400"></canvas>
+            <div id="gameOverScreen" class="hidden">
+                <h2>GAME OVER</h2>
+                <p>Final Score: <span id="finalScore">0</span></p>
+                <button id="restartBtn">PLAY AGAIN</button>
+            </div>
+            <div id="victoryScreen" class="hidden">
+                <h2>YOU WON!</h2>
+                <p>Thanks for your time to play my game</p>
+                <button id="victoryRestartBtn">PLAY AGAIN</button>
+            </div>
+            <div id="startScreen">
+                <h2>READY?</h2>
+                <p>Use Arrow Keys or Buttons to Move</p>
+                <button id="startBtn">START GAME</button>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="control-row">
+                <button class="d-pad-btn" id="upBtn">▲</button>
+            </div>
+            <div class="control-row">
+                <button class="d-pad-btn" id="leftBtn">◀</button>
+                <button class="d-pad-btn" id="downBtn">▼</button>
+                <button class="d-pad-btn" id="rightBtn">▶</button>
+            </div>
+        </div>
+
+        <footer>Created for Project 2026</footer>
+    </div>
+    <script src="script_slow.js"></script>
+</body>
+
+</html>
